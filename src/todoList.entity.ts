@@ -7,7 +7,7 @@ export class TodoListEntity {
     this.todoList.push(todo);
   }
 
-  remove(id: string) {
+  delete(id: string) {
     this.todoList = this.todoList.filter((t) => t.id !== id);
   }
 

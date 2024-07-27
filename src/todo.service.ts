@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { TodoListEntity } from "./todoList.entity";
 import { TodoEntity } from "./todo.entity";
 import { CreateTodoPayload, UpdateTodoPayload } from "./todo.payload";
@@ -19,15 +19,15 @@ export class TodoService {
     this.todoList.add(todo);
   }
 
-  delete(id: string): void {
-    this.todoList.remove(id);
+  remove(id: string): void {
+    this.todoList.delete(id);
   }
 
   complete(id: string): void {
     const todo = this.todoList.findById(id);
 
     if (!todo) {
-      throw new Error("Todo not found");
+      throw new NotFoundException(`Todo id=${id} not found`);
     }
 
     todo.complete();
@@ -37,7 +37,7 @@ export class TodoService {
     const todo = this.todoList.findById(payload.id);
 
     if (!todo) {
-      throw new Error("Todo not found");
+      throw new NotFoundException(`Todo id=${payload.id} not found`);
     }
 
     todo.update({
@@ -48,5 +48,9 @@ export class TodoService {
 
   getAll(): TodoEntity[] {
     return this.todoList.getAll();
+  }
+
+  getOne(id: string): TodoEntity {
+    return this.todoList.findById(id);
   }
 }
