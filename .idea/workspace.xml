@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d143af-86fb-491f-bd64-345d537b9986" name="Changes" comment="setup project">
-      <change afterPath="$PROJECT_DIR$/src/domain/todo.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/todoList.ts" afterDir="false" />
+    <list default="true" id="65d143af-86fb-491f-bd64-345d537b9986" name="Changes" comment="implement entities">
+      <change afterPath="$PROJECT_DIR$/src/todo.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/todo.payload.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/todo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/todoList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todoList.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/todo.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +50,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sorawitlertumpaisakulwong/Desktop/t/todo-bd&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sorawitlertumpaisakulwong/Desktop/t/todo-bd/src&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -62,7 +67,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -82,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722001281014</updated>
-      <workItem from="1722001281998" duration="4310000" />
+      <workItem from="1722001281998" duration="6290000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -124,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722012103450</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implement entities">
+      <option name="closed" value="true" />
+      <created>1722062141615</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722062141615</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +150,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="setup project" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup project" />
+    <MESSAGE value="implement entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement entities" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

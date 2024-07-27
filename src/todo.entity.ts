@@ -1,11 +1,12 @@
+import { v4 as uuidV4 } from "uuid";
+
 type TodoType = {
-  id: number;
   title: string;
   note: string;
 };
 
-export class Todo {
-  public readonly id: number;
+export class TodoEntity {
+  public readonly id: string;
   public title: string;
   public note: string;
   public completedAt: Date;
@@ -13,7 +14,7 @@ export class Todo {
   public updatedAt: Date;
 
   constructor(todo: TodoType) {
-    this.id = todo.id;
+    this.id = uuidV4();
     this.title = todo.title;
     this.note = todo.note;
     this.createAt = new Date();
