@@ -42,9 +42,9 @@ export class TodoController {
   }
 
   @Delete(":id")
-  remove(@Param("id") id: string) {
+  delete(@Param("id") id: string) {
     console.log("id", id);
-    this.todoService.remove(id);
+    this.todoService.delete(id);
     return { message: "Todo deleted" };
   }
 }

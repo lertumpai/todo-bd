@@ -19,7 +19,7 @@ export class TodoService {
     this.todoList.add(todo);
   }
 
-  remove(id: string): void {
+  delete(id: string): void {
     this.todoList.delete(id);
   }
 
