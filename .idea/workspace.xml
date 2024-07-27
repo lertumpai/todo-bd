@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65d143af-86fb-491f-bd64-345d537b9986" name="Changes" comment="implement entities">
-      <change afterPath="$PROJECT_DIR$/src/todo.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/todo.payload.ts" afterDir="false" />
+    <list default="true" id="65d143af-86fb-491f-bd64-345d537b9986" name="Changes" comment="implemeny todo service">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/todo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/todoList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todoList.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/todo.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/todo.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/todo.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.dto.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722001281014</updated>
-      <workItem from="1722001281998" duration="6290000" />
+      <workItem from="1722001281998" duration="6831000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -141,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722062141615</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implemeny todo service">
+      <option name="closed" value="true" />
+      <created>1722093803522</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722093803522</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +155,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="setup project" />
     <MESSAGE value="implement entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement entities" />
+    <MESSAGE value="implemeny todo service" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemeny todo service" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
