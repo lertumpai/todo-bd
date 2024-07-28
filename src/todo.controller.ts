@@ -33,7 +33,7 @@ export class TodoController {
     return { message: "Todo created" };
   }
 
-  @Post(":id/completion")
+  @Patch(":id/completion")
   complete(@Param("id") id: string) {
     this.todoService.complete(id);
     return { message: "Todo completed" };
