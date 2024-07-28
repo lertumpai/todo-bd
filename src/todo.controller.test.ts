@@ -1,89 +1,81 @@
+import { INestApplication } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { TodoController } from "./todo.controller";
-import { TodoService } from "./todo.service";
+import * as request from "supertest";
 import { TodoDTO } from "./todo.dto";
+import { TodoModule } from "./todo.module";
 
-describe("TodoController", () => {
-  let todoController: TodoController;
-  let todoService: TodoService;
+describe("TodoController (e2e)", () => {
+  let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TodoController],
-      providers: [
-        {
-          provide: TodoService,
-          useValue: {
-            getAll: jest.fn().mockResolvedValue([]),
-            getOne: jest.fn().mockResolvedValue({}),
-            create: jest.fn().mockResolvedValue(undefined),
-            complete: jest.fn().mockResolvedValue(undefined),
-            update: jest.fn().mockResolvedValue(undefined),
-            delete: jest.fn().mockResolvedValue(undefined),
-          },
-        },
-      ],
+      imports: [TodoModule],
     }).compile();
 
-    todoController = module.get<TodoController>(TodoController);
-    todoService = module.get<TodoService>(TodoService);
+    app = module.createNestApplication();
+    await app.init();
   });
 
-  it("should be defined", () => {
-    expect(todoController).toBeDefined();
+  afterAll(async () => {
+    await app.close();
   });
 
-  describe("getAll", () => {
-    it("should return an array of todos", async () => {
-      const result = [];
-      jest.spyOn(todoService, "getAll").mockResolvedValue(result);
-      expect(await todoController.getAll()).toBe(result);
-    });
+  it("v1/todos (GET)", async () => {
+    await request(app.getHttpServer()).get("v1/todos").expect(200).expect([]);
   });
 
-  describe("getOne", () => {
-    it("should return a single todo", async () => {
-      const result = {};
-      jest.spyOn(todoService, "getOne").mockResolvedValue(result);
-      expect(await todoController.getOne("1")).toBe(result);
-    });
+  it("/todos/:id (GET)", () => {
+    const todoId = "1";
+    return request(app.getHttpServer())
+      .get(`/todos/${todoId}`)
+      .expect(200)
+      .expect({
+        id: todoId,
+        title: "title",
+        note: "note",
+      });
   });
 
-  describe("create", () => {
-    it("should create a new todo", async () => {
-      const dto: TodoDTO = { title: "Test", note: "Test note" };
-      expect(await todoController.create(dto)).toEqual({
+  it("/todos (POST)", () => {
+    const dto: TodoDTO = { title: "Test", note: "Test note" };
+    return request(app.getHttpServer())
+      .post("/todos")
+      .send(dto)
+      .expect(201)
+      .expect({
         message: "Todo created",
       });
-      expect(todoService.create).toHaveBeenCalledWith(dto);
-    });
   });
 
-  describe("complete", () => {
-    it("should complete a todo", async () => {
-      expect(await todoController.complete("1")).toEqual({
+  it("/todos/:id/complete (PATCH)", () => {
+    const todoId = "1";
+    return request(app.getHttpServer())
+      .patch(`/todos/${todoId}/complete`)
+      .expect(200)
+      .expect({
         message: "Todo completed",
       });
-      expect(todoService.complete).toHaveBeenCalledWith("1");
-    });
   });
 
-  describe("update", () => {
-    it("should update a todo", async () => {
-      const dto: TodoDTO = { title: "Updated title", note: "Updated note" };
-      expect(await todoController.update("1", dto)).toEqual({
+  it("/todos/:id (PUT)", () => {
+    const todoId = "1";
+    const dto: TodoDTO = { title: "Updated title", note: "Updated note" };
+    return request(app.getHttpServer())
+      .post(`/todos/${todoId}`)
+      .send(dto)
+      .expect(200)
+      .expect({
         message: "Todo updated",
       });
-      expect(todoService.update).toHaveBeenCalledWith({ id: "1", ...dto });
-    });
   });
 
-  describe("delete", () => {
-    it("should delete a todo", async () => {
-      expect(await todoController.delete("1")).toEqual({
+  it("/todos/:id (DELETE)", () => {
+    const todoId = "1";
+    return request(app.getHttpServer())
+      .delete(`/todos/${todoId}`)
+      .expect(200)
+      .expect({
         message: "Todo deleted",
       });
-      expect(todoService.delete).toHaveBeenCalledWith("1");
-    });
   });
 });
